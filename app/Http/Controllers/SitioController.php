@@ -20,6 +20,21 @@ class SitioController extends Controller
         return view('paginas.contacto', compact('nombre', 'email'));
     }
 
+    public function recibeFormContacto(Request $request){
+        //Recibir información
+        //request->
+
+        //Validar los datos
+        $request->validate([
+            'nombre' => ['required', 'max:255', 'min:3'],
+            'email' => ['required', 'email'],
+            'comen' => ['required']
+        ]);
+
+        //Insertar a la BD
+        //Redirigirnos a otro punto
+    }
+
     public function landingpage(){
         return view('paginas.landingpage');
     }
