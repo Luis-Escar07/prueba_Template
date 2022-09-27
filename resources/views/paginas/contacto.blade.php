@@ -14,7 +14,7 @@
             <label for="nombre">
                 Nombre:
                 <br>
-                <input type="text" name="nombre" value="{{ old('nombre') }}" placeholder="Escribe tu nombre">
+                <input type="text" name="nombre" value="{{ old('nombre') ?? $nombre }}" placeholder="Escribe tu nombre">
 
                 @error('nombre')
                     <i>{{ $message }}</i>
@@ -26,7 +26,7 @@
             <label for="email">
                 Correo:
                 <br>
-                <input type="text" name="email" placeholder="Escribe tu email" value="{{ old('email') }}">
+                <input type="text" name="email" placeholder="Escribe tu email" value="{{ old('email') ?? $email }}">
 
                 @error('email')
                     <i>{{ $message }}</i>
@@ -35,10 +35,10 @@
 
             <br>
 
-            <label for="comen">
+            <label for="mensaje">
                 Comentarios extra:
                 <br>
-                <textarea name="comen" placeholder="Deja un comentario extra" cols="30" rows="10">{{ old('comen') }}"</textarea>
+                <textarea name="mensaje" placeholder="Deja un comentario extra" cols="30" rows="10">{{ old('comen') }}"</textarea>
 
                 @error('comen')
                     <i>{{ $message }}</i>

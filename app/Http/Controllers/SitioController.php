@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contacto;
 use Illuminate\Http\Request;
+use DB;
 
 class SitioController extends Controller
 {
@@ -28,11 +30,22 @@ class SitioController extends Controller
         $request->validate([
             'nombre' => ['required', 'max:255', 'min:3'],
             'email' => ['required', 'email'],
-            'comen' => ['required']
+            'mensaje' => ['required']
         ]);
+
+        //DB::table('contactos')->insert($request->except('_token'));
+
+        //$contacto = new Contacto();
+        //$contacto->nombre = $request->nombre;
+        //$contacto->email = $request->email;
+        //$contacto->mensaje = $request->mensaje;
+        //$contacto->save();
+
+        Contacto::create($request->all());
 
         //Insertar a la BD
         //Redirigirnos a otro punto
+        return redirect('/contacto');
     }
 
     public function landingpage(){
