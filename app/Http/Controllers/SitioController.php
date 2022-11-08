@@ -28,9 +28,9 @@ class SitioController extends Controller
 
         //Validar los datos
         $request->validate([
-            'nombre' => ['required', 'max:255', 'min:3'],
+            'nombre' => ['required', 'min:5'],
             'email' => ['required', 'email'],
-            'mensaje' => ['required']
+            'mensaje' => ['required', 'min:5'],
         ]);
 
         //DB::table('contactos')->insert($request->except('_token'));
